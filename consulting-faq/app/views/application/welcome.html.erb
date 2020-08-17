@@ -1,9 +1,13 @@
 <div class="topnav">
-    <a class="active" href="/consultants/sign_in">Consultant? Sign in</a>
-
-
+    <a class="active" href="/questions">Question</a>
+    <a href="/consultants/sign_in">Consultant? Sign in</a>
 </div>
-
-
 <h1>Welcome to Flatiron Consulting</h1>
-<h3><%= link_to "Please sign in", company_session_path %> </h3>
+
+<% if current_company %>
+<h3><%= link_to "Sign out", destroy_company_session_path, method: :delete %></h3>
+<p>Do you have a question to ask? Please post it in our Question board. </p>
+<% else %>
+<h3><%= link_to "Please sign in", new_company_session_path %> </h3>
+<h3><%= link_to "Please sign up", new_company_registration_path %> </h3>
+<% end %>

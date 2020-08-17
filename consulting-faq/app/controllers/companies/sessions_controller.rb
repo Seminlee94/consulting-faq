@@ -5,15 +5,12 @@ class Companies::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   def new
-    @company = Company.new
+    super
   end
-  
+
   # POST /resource/sign_in
   def create
-    @company = Company.new
-    # super
-
-    redirect_to company_session_path(current_company)
+    super
   end
 
   # DELETE /resource/sign_out
